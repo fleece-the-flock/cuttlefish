@@ -1,0 +1,29 @@
+{
+  "name": "cuttlefish",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "fleece the flock of cuttlefish",
+  "main": "n/a",
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fleece-the-flock/cuttlefish.git"
+  },
+  "keywords": [
+    "chatgpt"
+  ],
+  "author": "liuliang@webfrontend.dev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fleece-the-flock/cuttlefish/issues"
+  },
+  "homepage": "https://github.com/fleece-the-flock/cuttlefish#readme",
+  "dependencies": {
+    "chatgpt": "^3.4.1",
+    "dotenv-safe": "^8.2.0",
+    "ora": "^6.1.2",
+    "puppeteer": "^19.4.1"
+  }
+}
