@@ -1,10 +1,11 @@
 import {
   TASK_STATUS,
   DEFAULT_HOST,
+  KEYWORD_FILTERS,
   DEFAULT_REFERRER,
   DEFAULT_USER_AGENT
 } from './constant.js'
-import { createQuestionUrl } from './util.js'
+import { wait, createQuestionUrl } from './util.js'
 
 const { AB_SR, BDUSS, BAIDUID, BDUSS_BFESS, BAIDUID_BFESS } = process.env
 
@@ -30,7 +31,12 @@ function fetchQuestion(...args) {
 
       return {
         currentSize: queryList.length,
-        list: queryList.filter(({ status }) => status !== TASK_STATUS['已完成'])
+        list: queryList.filter(
+          ({ status, queryName }) =>
+            status !== TASK_STATUS['已完成'] &&
+            KEYWORD_FILTERS.filter((keyword) => queryName.includes(keyword))
+              .length <= 1
+        )
       }
     })
     .catch((error) => {
@@ -54,6 +60,8 @@ async function doGetQuestion(cids, questions, threshold, pn, rn) {
   }
   // 添加问题
   questions.push(...finalQuestion)
+  // 等待 500 ms，防止接口请求过快
+  await wait(500)
   // 如果当前页数量等于每页数量，继续获取下一页
   if (currentSize === rn) {
     await doGetQuestion(cids, questions, threshold, pn + 1, rn)
