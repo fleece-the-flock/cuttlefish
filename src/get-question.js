@@ -32,8 +32,8 @@ function fetchQuestion(...args) {
       return {
         currentSize: queryList.length,
         list: queryList.filter(
-          ({ status, queryName }) =>
-            status !== TASK_STATUS['已完成'] &&
+          ({ queryName, status: subStatus }) =>
+            subStatus !== TASK_STATUS['已完成'] &&
             KEYWORD_FILTERS.filter((keyword) => queryName.includes(keyword))
               .length <= 1
         )
