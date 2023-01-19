@@ -1,7 +1,12 @@
 import { oraPromise } from 'ora'
 import { ChatGPTAPIBrowser } from 'chatgpt'
 
-import { IS_ENABLE_FOLLOW_UP, THE_NUMBER_OF_FOLLOW_UP } from './constant.js'
+import {
+  IS_ENABLE_FOLLOW_UP,
+  THE_NUMBER_OF_FOLLOW_UP,
+  NEXT_PROMPT_MESSAGE_PREFIX,
+  CURRENT_PROMPT_MESSAGE_SUFFIX
+} from './constant.js'
 
 const getAnswerWithOraPromise = (api, prompt, options) =>
   oraPromise(
@@ -20,7 +25,10 @@ async function doGetAnswer(api, answers, prompts, handleCreateFile) {
       conversationId,
       response: answer,
       messageId: parentMessageId
-    } = await getAnswerWithOraPromise(api, prompt))
+    } = await getAnswerWithOraPromise(
+      api,
+      `${prompt}${CURRENT_PROMPT_MESSAGE_SUFFIX}`
+    ))
 
     if (IS_ENABLE_FOLLOW_UP) {
       let response = ''
@@ -30,10 +38,11 @@ async function doGetAnswer(api, answers, prompts, handleCreateFile) {
           response,
           conversationId,
           messageId: parentMessageId
-        } = await getAnswerWithOraPromise(api, prompt, {
-          conversationId,
-          parentMessageId
-        }))
+        } = await getAnswerWithOraPromise(
+          api,
+          `${NEXT_PROMPT_MESSAGE_PREFIX}${prompt}`,
+          { conversationId, parentMessageId }
+        ))
 
         if (!answer.includes(response)) answer += response
       }

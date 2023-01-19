@@ -2,13 +2,20 @@ import { resolve } from 'path'
 import dotenv from 'dotenv-safe'
 
 import {
+  wait,
+  mkdirp,
+  createFile,
+  getDirname,
+  createFileAsync
+} from './util.js'
+import {
   OUTPUT_PATH,
   CATEGORY_VALUES,
   QUESTION_MAX_AMOUNT,
   OUTPUT_FILE_EXTENSION,
+  RETRY_WAIT_TIME_AFTER_EXCEPTION,
   IS_ENABLE_CREATE_FILE_DURING_CONVERSATION
 } from './constant.js'
-import { mkdirp, createFile, getDirname, createFileAsync } from './util.js'
 
 dotenv.config({ example: '.env' })
 
@@ -49,5 +56,6 @@ async function main() {
 
 main().catch((err) => {
   console.error(err)
-  process.exit(1)
+
+  wait(RETRY_WAIT_TIME_AFTER_EXCEPTION).then(main)
 })
