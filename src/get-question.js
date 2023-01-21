@@ -1,9 +1,13 @@
 import {
+  CATEGORY,
   TASK_STATUS,
   DEFAULT_HOST,
   KEYWORD_FILTERS,
   DEFAULT_REFERRER,
-  DEFAULT_USER_AGENT
+  DEFAULT_PAGE_SIZE,
+  DEFAULT_USER_AGENT,
+  DEFAULT_PAGE_NUMBER,
+  RETRY_WAIT_TIME_AFTER_TOO_FAST
 } from './constant.js'
 import { wait, createQuestionUrl } from './util.js'
 
@@ -30,13 +34,13 @@ function fetchQuestion(...args) {
       const { queryList } = data
 
       return {
-        currentSize: queryList.length,
         list: queryList.filter(
           ({ queryName, status: subStatus }) =>
             subStatus !== TASK_STATUS['已完成'] &&
             KEYWORD_FILTERS.filter((keyword) => queryName.includes(keyword))
               .length <= 1
-        )
+        ),
+        currentSize: queryList.length
       }
     })
     .catch((error) => {
@@ -46,6 +50,15 @@ function fetchQuestion(...args) {
     })
 }
 
+/**
+ * 获取问题过程
+ *
+ * @param {number[]} cids 分类 id 列表
+ * @param {Question[]} questions 问题列表
+ * @param {number} threshold 问题数量阈值
+ * @param {number} pn 页码
+ * @param {number} rn 每页数量
+ */
 async function doGetQuestion(cids, questions, threshold, pn, rn) {
   const { length: size } = questions
   if (size >= threshold || !cids || !cids.length) return
@@ -58,10 +71,20 @@ async function doGetQuestion(cids, questions, threshold, pn, rn) {
   if (size + finalQuestion.length > threshold) {
     finalQuestion = finalQuestion.slice(0, threshold - size)
   }
+  // 添加分类名称以及页数
+  if (finalQuestion.length) {
+    const [
+      [cName] = Object.entries(CATEGORY).find(
+        ([, targetCid]) => targetCid === cid
+      ) ?? []
+    ] = []
+
+    finalQuestion = finalQuestion.map((item) => ({ pn, cName, ...item }))
+  }
   // 添加问题
   questions.push(...finalQuestion)
   // 等待 500 ms，防止接口请求过快
-  await wait(500)
+  await wait(RETRY_WAIT_TIME_AFTER_TOO_FAST)
   // 如果当前页数量等于每页数量，继续获取下一页
   if (currentSize === rn) {
     await doGetQuestion(cids, questions, threshold, pn + 1, rn)
@@ -69,7 +92,7 @@ async function doGetQuestion(cids, questions, threshold, pn, rn) {
   }
 
   // 如果当前分类问题数量不足，继续获取下一个分类
-  await doGetQuestion(rest, questions, threshold, 0, rn)
+  await doGetQuestion(rest, questions, threshold, DEFAULT_PAGE_NUMBER, rn)
 }
 
 /**
@@ -79,8 +102,15 @@ async function doGetQuestion(cids, questions, threshold, pn, rn) {
  * @param {number} threshold 问题数量阈值
  * @param {number} [pn=0] 页码
  * @param {number} [rn=20] 每页数量
+ *
+ * @returns {Promise<Question[]>} 问题列表
  */
-export default async function getQuestion(cid, threshold, pn = 0, rn = 20) {
+export default async function getQuestion(
+  cid,
+  threshold,
+  pn = DEFAULT_PAGE_NUMBER,
+  rn = DEFAULT_PAGE_SIZE
+) {
   let cids = cid
   if (!Array.isArray(cids)) cids = [cids]
 

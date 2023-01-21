@@ -168,6 +168,10 @@ export const DEFAULT_USER_AGENT =
 
 export const OUTPUT_PATH = 'docs'
 
+export const DEFAULT_PAGE_SIZE = 20
+
+export const DEFAULT_PAGE_NUMBER = 0
+
 export const QUESTION_MAX_AMOUNT = 500
 
 export const IS_ENABLE_FOLLOW_UP = true
@@ -175,6 +179,8 @@ export const IS_ENABLE_FOLLOW_UP = true
 export const THE_NUMBER_OF_FOLLOW_UP = 5
 
 export const OUTPUT_FILE_EXTENSION = '.txt'
+
+export const RETRY_WAIT_TIME_AFTER_TOO_FAST = 500
 
 export const DEFAULT_HOST = 'cuttlefish.baidu.com'
 

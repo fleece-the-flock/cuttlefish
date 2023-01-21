@@ -40,7 +40,7 @@ async function main() {
   const answers = await getAnswer(
     (
       await getQuestion(CATEGORY_VALUES, QUESTION_MAX_AMOUNT)
-    ).map(({ queryName }) => queryName),
+    ).map(({ pn, cName, queryName }) => ({ pn, cName, queryName })),
     handleCreateFile
   )
 
