@@ -19,6 +19,7 @@ module.exports = {
     'operator-linebreak': 0,
     'import/no-unresolved': 0,
     'object-curly-newline': 0,
+    'function-paren-newline': 0,
     'implicit-arrow-linebreak': 0
   }
 }

@@ -6,10 +6,13 @@ import {
   DEFAULT_REFERRER,
   DEFAULT_PAGE_SIZE,
   DEFAULT_USER_AGENT,
+  FILENAME_SEPARATOR,
   DEFAULT_PAGE_NUMBER,
-  RETRY_WAIT_TIME_AFTER_TOO_FAST
+  OUTPUT_FILE_EXTENSION,
+  RETRY_WAIT_TIME_AFTER_TOO_FAST,
+  IS_SKIP_QUESTION_WHEN_FILE_EXIST
 } from './constant.js'
-import { wait, createQuestionUrl } from './util.js'
+import { wait, getFiles, createQuestionUrl } from './util.js'
 
 const { AB_SR, BDUSS, BAIDUID, BDUSS_BFESS, BAIDUID_BFESS } = process.env
 
@@ -21,7 +24,7 @@ function fetchQuestion(...args) {
       Host: DEFAULT_HOST,
       Referer: DEFAULT_REFERRER,
       'User-Agent': DEFAULT_USER_AGENT,
-      cookie: `BDUSS=${BDUSS}; BDUSS_BFESS=${BDUSS_BFESS}; ab_sr=${AB_SR}; BAIDUID=${BAIDUID}; BAIDUID_BFESS=${BAIDUID_BFESS}`
+      Cookie: `BDUSS=${BDUSS}; BDUSS_BFESS=${BDUSS_BFESS}; ab_sr=${AB_SR}; BAIDUID=${BAIDUID}; BAIDUID_BFESS=${BAIDUID_BFESS}`
     },
     credentials: 'include'
   })
@@ -100,6 +103,7 @@ async function doGetQuestion(cids, questions, threshold, pn, rn) {
  *
  * @param {number[] | number} cid 分类 id 数组或单个分类 id
  * @param {number} threshold 问题数量阈值
+ * @param {string} outputDir 输出目录
  * @param {number} [pn=0] 页码
  * @param {number} [rn=20] 每页数量
  *
@@ -108,6 +112,7 @@ async function doGetQuestion(cids, questions, threshold, pn, rn) {
 export default async function getQuestion(
   cid,
   threshold,
+  outputDir,
   pn = DEFAULT_PAGE_NUMBER,
   rn = DEFAULT_PAGE_SIZE
 ) {
@@ -117,6 +122,17 @@ export default async function getQuestion(
   const questions = []
 
   await doGetQuestion(cids, questions, threshold, pn, rn)
+  // 是否过滤本地已存在答案的问题
+  if (!IS_SKIP_QUESTION_WHEN_FILE_EXIST) return questions
 
-  return questions
+  const existFileNames = getFiles(
+    outputDir,
+    [OUTPUT_FILE_EXTENSION],
+    FILENAME_SEPARATOR
+  )
+
+  return questions.filter(
+    ({ queryName }) =>
+      !existFileNames.includes(`${queryName}${OUTPUT_FILE_EXTENSION}}`)
+  )
 }

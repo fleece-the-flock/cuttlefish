@@ -20,6 +20,12 @@ export const TASK_STATUS = {
   已完成: 2
 }
 
+export const EXTENSION_MAP = {
+  doc: '.doc',
+  txt: '.txt',
+  docx: '.docx'
+}
+
 export const DEFAULT_REFERRER =
   'https://cuttlefish.baidu.com/ndecommtob/browse/index?_wkts_=1673174104309'
 
@@ -70,6 +76,25 @@ export const KEYWORD_FILTERS = [
   '高一',
   '高二',
   '高三',
+  // 学期
+  '一上',
+  '一下',
+  '二上',
+  '二下',
+  '三上',
+  '三下',
+  '四上',
+  '四下',
+  '五上',
+  '五下',
+  '六上',
+  '六下',
+  '七上',
+  '七下',
+  '八上',
+  '八下',
+  '九上',
+  '九下',
   // 教材版本
   '统编版',
   '人教版',
@@ -172,13 +197,15 @@ export const DEFAULT_PAGE_SIZE = 20
 
 export const DEFAULT_PAGE_NUMBER = 0
 
+export const FILENAME_SEPARATOR = '.'
+
+export const MIN_COUNT_DOWN_TIME = 60
+
 export const QUESTION_MAX_AMOUNT = 500
 
 export const IS_ENABLE_FOLLOW_UP = true
 
 export const THE_NUMBER_OF_FOLLOW_UP = 5
-
-export const OUTPUT_FILE_EXTENSION = '.txt'
 
 export const RETRY_WAIT_TIME_AFTER_TOO_FAST = 500
 
@@ -186,7 +213,13 @@ export const DEFAULT_HOST = 'cuttlefish.baidu.com'
 
 export const NEXT_PROMPT_MESSAGE_PREFIX = '继续回答'
 
+export const IS_SKIP_QUESTION_WHEN_FILE_EXIST = true
+
 export const RETRY_WAIT_TIME_AFTER_EXCEPTION = 60000
+
+export const OUTPUT_FILE_EXTENSION = EXTENSION_MAP.doc
+
+export const RETRY_WAIT_TIME_AFTER_NO_QUESTION = 60000
 
 export const CATEGORY_VALUES = Object.values(CATEGORY)
 

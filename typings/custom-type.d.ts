@@ -17,4 +17,4 @@ type Question = {
 /** 答案类型 */
 type Answer = string
 
-type CreateFileHandler = (prompt: string, answer: string) => void
+type CreateFileHandler = (prompt: string, answer: string[]) => void

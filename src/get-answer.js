@@ -28,14 +28,14 @@ const getAnswerWithOraPromise = (api, prompt, options, text) =>
  * @param {ChatGPTAPIBrowser} api chatgpt 实例
  * @param {Answer[]} answers 答案
  * @param {Question[]} prompts 提示
- * @param {Function} handleCreateFile 创建文件的处理函数
+ * @param {CreateFileHandler=} handleCreateFile 创建文件的处理函数
  */
 async function doGetAnswer(api, answers, prompts, handleCreateFile) {
   if (!prompts || !prompts.length) return
 
   const [{ pn, cName, queryName }, ...rest] = prompts
 
-  let [answer = '', conversationId = '', parentMessageId = ''] = []
+  let [answer, segments, conversationId, parentMessageId] = ['', [], '', '']
 
   try {
     ;({
@@ -49,13 +49,13 @@ async function doGetAnswer(api, answers, prompts, handleCreateFile) {
       `正在获取位于【${cName}】类别下第 ${pn + 1} 页【${queryName}】的答案`
     ))
 
-    if (IS_ENABLE_FOLLOW_UP) {
-      let response = ''
+    segments.push(answer)
 
+    if (IS_ENABLE_FOLLOW_UP) {
       for (let i = 0; i < THE_NUMBER_OF_FOLLOW_UP; i++) {
         ;({
-          response,
           conversationId,
+          response: answer,
           messageId: parentMessageId
         } = await getAnswerWithOraPromise(
           api,
@@ -63,15 +63,15 @@ async function doGetAnswer(api, answers, prompts, handleCreateFile) {
           { conversationId, parentMessageId }
         ))
 
-        if (!answer.includes(response)) answer += response
+        if (!segments.includes(answer)) segments.push(answer)
       }
     }
   } catch {
-    answer = ''
+    segments = []
   }
 
-  answers.push({ value: answer, key: queryName })
-  handleCreateFile?.(queryName, answer)
+  handleCreateFile?.(queryName, segments)
+  answers.push({ key: queryName, value: segments })
 
   await doGetAnswer(api, answers, rest, handleCreateFile)
 }
