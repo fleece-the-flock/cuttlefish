@@ -133,6 +133,6 @@ export default async function getQuestion(
 
   return questions.filter(
     ({ queryName }) =>
-      !existFileNames.includes(`${queryName}${OUTPUT_FILE_EXTENSION}}`)
+      !existFileNames.includes(`${queryName}${OUTPUT_FILE_EXTENSION}`)
   )
 }

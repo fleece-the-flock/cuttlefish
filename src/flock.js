@@ -52,6 +52,11 @@ export default async function flock(outputDir) {
   if (!questions.length) {
     const countDown = await getFreshCountDown()
     if (countDown && countDown > MIN_COUNT_DOWN_TIME) {
+      console.log(
+        `没有发现新的问题，等待 ${
+          RETRY_WAIT_TIME_AFTER_NO_QUESTION / 1000
+        } 秒之后，再次尝试请求问题列表`
+      )
       await wait(RETRY_WAIT_TIME_AFTER_NO_QUESTION)
     }
 

@@ -1,5 +1,5 @@
 import { oraPromise } from 'ora'
-import { ChatGPTAPIBrowser } from 'chatgpt'
+import { ChatGPTAPI } from 'chatgpt'
 
 import {
   IS_ENABLE_FOLLOW_UP,
@@ -11,7 +11,7 @@ import {
 /**
  * 在使用 ora 的情况下，获取答案
  *
- * @param {ChatGPTAPIBrowser} api chatgpt 实例
+ * @param {ChatGPTAPI} api chatgpt 实例
  * @param {string} prompt 提示
  * @param {null|import('chatgpt').SendMessageOptions=} options 选项
  * @param {string=} text ora 的文本
@@ -25,7 +25,7 @@ const getAnswerWithOraPromise = (api, prompt, options, text) =>
 /**
  * 获取答案过程
  *
- * @param {ChatGPTAPIBrowser} api chatgpt 实例
+ * @param {ChatGPTAPI} api chatgpt 实例
  * @param {Answer[]} answers 答案
  * @param {Question[]} prompts 提示
  * @param {CreateFileHandler=} handleCreateFile 创建文件的处理函数
@@ -39,9 +39,9 @@ async function doGetAnswer(api, answers, prompts, handleCreateFile) {
 
   try {
     ;({
+      text: answer,
       conversationId,
-      response: answer,
-      messageId: parentMessageId
+      id: parentMessageId
     } = await getAnswerWithOraPromise(
       api,
       `${queryName}${CURRENT_PROMPT_MESSAGE_SUFFIX}`,
@@ -54,9 +54,9 @@ async function doGetAnswer(api, answers, prompts, handleCreateFile) {
     if (IS_ENABLE_FOLLOW_UP) {
       for (let i = 0; i < THE_NUMBER_OF_FOLLOW_UP; i++) {
         ;({
+          text: answer,
           conversationId,
-          response: answer,
-          messageId: parentMessageId
+          id: parentMessageId
         } = await getAnswerWithOraPromise(
           api,
           `${NEXT_PROMPT_MESSAGE_PREFIX}${queryName}`,
@@ -85,14 +85,10 @@ async function doGetAnswer(api, answers, prompts, handleCreateFile) {
  * @returns {Promise<Answer[]>} 答案列表
  */
 export default async function getAnswer(prompt, handleCreateFile) {
-  const api = new ChatGPTAPIBrowser({
+  const api = new ChatGPTAPI({
     debug: false,
-    minimize: true,
-    markdown: false,
-    email: process.env.OPENAI_EMAIL,
-    password: process.env.OPENAI_PASSWORD
+    apiKey: process.env.OPENAI_API_KEY
   })
-  await api.initSession()
 
   let prompts = prompt
   if (!Array.isArray(prompts)) prompts = [prompts]
@@ -100,7 +96,6 @@ export default async function getAnswer(prompt, handleCreateFile) {
   const answers = []
 
   await doGetAnswer(api, answers, prompts, handleCreateFile)
-  await api.closeSession()
 
   return answers
 }
