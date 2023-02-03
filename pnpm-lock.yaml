@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  chatgpt: ^4.1.0
+  chatgpt: ^4.1.1
   docx: ^7.8.2
   dotenv-safe: ^8.2.0
   eslint: ^7.32.0 || ^8.2.0
@@ -10,7 +10,7 @@ specifiers:
   ora: ^6.1.2
 
 dependencies:
-  chatgpt: 4.1.0
+  chatgpt: 4.1.1
   docx: 7.8.2
   dotenv-safe: 8.2.0
   ora: 6.1.2
@@ -223,8 +223,8 @@ packages:
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
     dev: false
 
-  /chatgpt/4.1.0:
-    resolution: {integrity: sha512-nsgBmo3iengL+jpqNRewM2ktEkVZkY0Y/fYyg+hwVNpmpWthZjc8qHq7xG0kqc45P0Zufel69alO+E4jBh8itg==}
+  /chatgpt/4.1.1:
+    resolution: {integrity: sha512-2Hn9kjSSndvmLiRLYK1xHXxf436xwby3vmLBlLayxFFErQHW2+47zjGlaanhrFzb89MfWsf+1GPwl/qKklDUeA==}
     engines: {node: '>=18'}
     dependencies:
       eventsource-parser: 0.0.5
