@@ -1,12 +1,11 @@
-import { resolve } from 'path'
 import dotenv from 'dotenv-safe'
 
-import { wait, mkdirp, getDirname } from './util.js'
-import { OUTPUT_PATH, RETRY_WAIT_TIME_AFTER_EXCEPTION } from './constant.js'
+import { wait, mkdirp, getOutputDirByPath } from './util.js'
+import { DOUBLE_DOT, RETRY_WAIT_TIME_AFTER_EXCEPTION } from './constant.js'
 
 dotenv.config({ example: '.env' })
 
-const outputDir = `${resolve(getDirname(import.meta.url), '..')}/${OUTPUT_PATH}`
+const outputDir = getOutputDirByPath(import.meta.url, DOUBLE_DOT)
 
 mkdirp(outputDir)
 

@@ -49,7 +49,7 @@ async function doGetAnswer(api, answers, prompts, handleCreateFile) {
       `正在获取位于【${cName}】类别下第 ${pn + 1} 页【${queryName}】的答案`
     ))
 
-    segments.push(answer)
+    segments.push(answer.replaceAll(',', '，'))
 
     if (IS_ENABLE_FOLLOW_UP) {
       for (let i = 0; i < THE_NUMBER_OF_FOLLOW_UP; i++) {
@@ -63,7 +63,9 @@ async function doGetAnswer(api, answers, prompts, handleCreateFile) {
           { conversationId, parentMessageId }
         ))
 
-        if (!segments.includes(answer)) segments.push(answer)
+        if (!segments.includes(answer)) {
+          segments.push(answer.replaceAll(',', '，'))
+        }
       }
     }
   } catch {

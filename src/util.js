@@ -1,10 +1,12 @@
 import fs from 'fs'
 import { fileURLToPath } from 'url'
-import { join, dirname } from 'path'
+import { join, dirname, resolve } from 'path'
+
+import { OUTPUT_PATH, DEFAULT_HOST, TEMPLATE_PATH } from './constant.js'
 
 export const wait = (ms) =>
-  new Promise((resolve) => {
-    setTimeout(resolve, ms)
+  new Promise((r) => {
+    setTimeout(r, ms)
   })
 
 export const mkdirp = (path) => {
@@ -21,12 +23,20 @@ export const createFileAsync = (file, data) => {
 }
 
 export const createQuestionUrl = (cid, pn, rn) =>
-  `https://cuttlefish.baidu.com/user/interface/getquerypacklist?cid=${cid}&pn=${pn}&rn=${rn}&word=&tab=1`
+  `https://${DEFAULT_HOST}/user/interface/getquerypacklist?cid=${cid}&pn=${pn}&rn=${rn}&word=&tab=1`
 
 export const getFileSuffix = (filename, searchString) =>
   filename.slice(filename.lastIndexOf(searchString))
 
 export const getDirname = (url) => dirname(fileURLToPath(url))
+
+export const getOutputDirByPath = (path, ...segments) =>
+  `${resolve(getDirname(path), ...segments)}/${OUTPUT_PATH}`
+
+export const getTemplateBySuffix = (filename, path, ...segments) =>
+  fs.readFileSync(
+    `${resolve(getDirname(path), ...segments)}/${TEMPLATE_PATH}/${filename}`
+  )
 
 export const getFiles = (dir, suffixes, searchString, excludes = []) => {
   if (!dir) return []

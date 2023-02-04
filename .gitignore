@@ -23,3 +23,9 @@ yarn-error.log*
 
 # docs
 docs
+
+# Word temporary
+~$*.doc*
+
+# Word Auto Backup File
+Backup of *.doc*

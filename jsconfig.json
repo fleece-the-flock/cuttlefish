@@ -1,3 +1,8 @@
 {
+  "extends": "@tsconfig/node18/tsconfig.json",
   "include": ["src/**/*", "typings/**/*"],
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+  }
 }

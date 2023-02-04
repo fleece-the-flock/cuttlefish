@@ -21,13 +21,9 @@ export const TASK_STATUS = {
 }
 
 export const EXTENSION_MAP = {
-  doc: '.doc',
   txt: '.txt',
   docx: '.docx'
 }
-
-export const DEFAULT_REFERRER =
-  'https://cuttlefish.baidu.com/ndecommtob/browse/index?_wkts_=1673174104309'
 
 export const KEYWORD_FILTERS = [
   '答案',
@@ -205,7 +201,11 @@ export const QUESTION_MAX_AMOUNT = 500
 
 export const IS_ENABLE_FOLLOW_UP = true
 
+export const TEMPLATE_PATH = 'templates'
+
 export const THE_NUMBER_OF_FOLLOW_UP = 5
+
+export const DEFAULT_TEMPLATE_NAME = 'pure-text'
 
 export const RETRY_WAIT_TIME_AFTER_TOO_FAST = 500
 
@@ -217,12 +217,16 @@ export const IS_SKIP_QUESTION_WHEN_FILE_EXIST = true
 
 export const RETRY_WAIT_TIME_AFTER_EXCEPTION = 60000
 
-export const OUTPUT_FILE_EXTENSION = EXTENSION_MAP.doc
+export const CATEGORY_VALUES = Object.values(CATEGORY)
+
+export const DOUBLE_DOT = FILENAME_SEPARATOR.repeat(2)
 
 export const RETRY_WAIT_TIME_AFTER_NO_QUESTION = 60000
 
-export const CATEGORY_VALUES = Object.values(CATEGORY)
-
-export const CURRENT_PROMPT_MESSAGE_SUFFIX = ' 不少于 200 字'
+export const OUTPUT_FILE_EXTENSION = EXTENSION_MAP.docx
 
 export const IS_ENABLE_CREATE_FILE_DURING_CONVERSATION = true
+
+export const CURRENT_PROMPT_MESSAGE_SUFFIX = '不少于 500 字且使用中文回答'
+
+export const DEFAULT_REFERRER = `https://${DEFAULT_HOST}/shopmis?_wkts_=${Date.now()}`
