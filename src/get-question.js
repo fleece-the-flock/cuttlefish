@@ -9,6 +9,7 @@ import {
   FILENAME_SEPARATOR,
   DEFAULT_PAGE_NUMBER,
   OUTPUT_FILE_EXTENSION,
+  ENHANCED_KEYWORD_FILTERS,
   RETRY_WAIT_TIME_AFTER_TOO_FAST,
   IS_SKIP_QUESTION_WHEN_FILE_EXIST
 } from './constant.js'
@@ -41,7 +42,10 @@ function fetchQuestion(...args) {
           ({ queryName, status: subStatus }) =>
             subStatus !== TASK_STATUS['已完成'] &&
             KEYWORD_FILTERS.filter((keyword) => queryName.includes(keyword))
-              .length <= 1
+              .length <= 1 &&
+            ENHANCED_KEYWORD_FILTERS.filter((keyword) =>
+              queryName.includes(keyword)
+            ).length !== 1
         ),
         currentSize: queryList.length
       }

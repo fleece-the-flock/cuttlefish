@@ -205,6 +205,16 @@ export const TEMPLATE_PATH = 'templates'
 
 export const THE_NUMBER_OF_FOLLOW_UP = 5
 
+export const ENHANCED_KEYWORD_FILTERS = [
+  // 拼音
+  '读拼音',
+  '拼音',
+  '怎么读',
+  '怎么念',
+  'ppt',
+  'PPT'
+]
+
 export const DEFAULT_TEMPLATE_NAME = 'pure-text'
 
 export const RETRY_WAIT_TIME_AFTER_TOO_FAST = 500
