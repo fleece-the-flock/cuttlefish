@@ -1,6 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:base",
+    ":dependencyDashboard"
+  ],
+  "packageRules": [
+    {
+      "matchManagers": ["pnpm"],
+      "dependencyDashboardApproval": true,
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "matchPackagePatterns": ["^ora","^chatgpt", "^docx-templates"]
+    }
   ]
 }
