@@ -25,7 +25,7 @@ export const EXTENSION_MAP = {
   docx: '.docx'
 }
 
-export const KEYWORD_FILTERS = [
+const baseFilters = [
   '答案',
   '教材',
   '试卷',
@@ -37,7 +37,11 @@ export const KEYWORD_FILTERS = [
   '数学题',
   '计算题',
   '电子版',
-  '电子书',
+  '电子书'
+]
+
+export const KEYWORD_FILTERS = [
+  ...baseFilters,
   // 科目
   '英语',
   '语文',
@@ -211,9 +215,26 @@ export const ENHANCED_KEYWORD_FILTERS = [
   '拼音',
   '怎么读',
   '怎么念',
+  // 英文
   'ppt',
-  'PPT'
+  'PPT',
+  'pdf',
+  'PDF',
+  // 其它
+  '图片',
+  '字帖',
+  '谱子',
+  '简谱',
+  '吉他谱',
+  '乐谱',
+  '琴谱',
+  '手抄报',
+  '思维导图',
+  ...baseFilters
 ]
+
+export const CURRENT_PROMPT_MESSAGE_SUFFIX =
+  '】，回答字数不少于 500 字且使用中文回答'
 
 export const DEFAULT_TEMPLATE_NAME = 'pure-text'
 
@@ -222,6 +243,8 @@ export const RETRY_WAIT_TIME_AFTER_TOO_FAST = 500
 export const DEFAULT_HOST = 'cuttlefish.baidu.com'
 
 export const NEXT_PROMPT_MESSAGE_PREFIX = '继续回答'
+
+export const CURRENT_PROMPT_MESSAGE_PREFIX = '回答【'
 
 export const IS_SKIP_QUESTION_WHEN_FILE_EXIST = true
 
@@ -236,7 +259,5 @@ export const RETRY_WAIT_TIME_AFTER_NO_QUESTION = 60000
 export const OUTPUT_FILE_EXTENSION = EXTENSION_MAP.docx
 
 export const IS_ENABLE_CREATE_FILE_DURING_CONVERSATION = true
-
-export const CURRENT_PROMPT_MESSAGE_SUFFIX = '不少于 500 字且使用中文回答'
 
 export const DEFAULT_REFERRER = `https://${DEFAULT_HOST}/shopmis?_wkts_=${Date.now()}`
