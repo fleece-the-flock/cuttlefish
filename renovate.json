@@ -11,5 +11,6 @@
       "matchUpdateTypes": ["major", "minor", "patch"],
       "matchPackagePatterns": ["^ora","^chatgpt", "^docx-templates"]
     }
-  ]
+  ],
+  "rangeStrategy": "bump"
 }
