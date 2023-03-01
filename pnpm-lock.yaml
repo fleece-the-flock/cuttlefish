@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@tsconfig/node18': ^1.0.1
-  chatgpt: ^4.7.2
+  chatgpt: ^4.8.2
   docx-templates: ^4.9.2
   dotenv-safe: ^8.2.0
   eslint: ^7.32.0 || ^8.2.0
@@ -11,7 +11,7 @@ specifiers:
   ora: ^6.1.2
 
 dependencies:
-  chatgpt: 4.7.2
+  chatgpt: 4.8.2
   docx-templates: 4.9.2
   dotenv-safe: 8.2.0
   ora: 6.1.2
@@ -43,6 +43,10 @@ packages:
       '@babel/helper-validator-identifier': 7.19.1
       chalk: 2.4.2
       js-tokens: 4.0.0
+    dev: false
+
+  /@dqbd/tiktoken/0.4.0:
+    resolution: {integrity: sha512-iaHgmwKAOqowBFZKxelyszoeGLoNw62eOULcmyme1aA1Ymr3JgYl0V7jwpuUm7fksalycZajx3loFn9TRUaviw==}
     dev: false
 
   /@eslint/eslintrc/1.4.1:
@@ -195,10 +199,6 @@ packages:
       is-string: 1.0.7
     dev: true
 
-  /array-keyed-map/2.1.3:
-    resolution: {integrity: sha512-JIUwuFakO+jHjxyp4YgSiKXSZeC0U+R1jR94bXWBcVlFRBycqXlb+kH9JHxBGcxnVuSqx5bnn0Qz9xtSeKOjiA==}
-    dev: false
-
   /array.prototype.flat/1.3.1:
     resolution: {integrity: sha512-roTU0KWIOmJ4DRLmwKd19Otg0/mT3qPNt0Qb3GWW8iObuZXxrjB/pzn0R3hqpRSWg4HCwqx+0vwOnWnvlOyeIA==}
     engines: {node: '>= 0.4'}
@@ -300,15 +300,15 @@ packages:
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
     dev: false
 
-  /chatgpt/4.7.2:
-    resolution: {integrity: sha512-c5CNqvB98IMEz/Byopwu5FlXGS3w/3iNiZITdDlcZLue4VSjEfzMRWrOrdGidzcE+ud2My6nO8/sSnY7W04WJA==}
+  /chatgpt/4.8.2:
+    resolution: {integrity: sha512-6vprjBeN/asQxn/PEh6GGFwxBwGZkSauLIjmb+oBbFYnzWNt90HcYfSP7CimhT1sSnI91E3+wG645L5nUnJmCg==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
+      '@dqbd/tiktoken': 0.4.0
       cac: 6.7.14
       conf: 11.0.1
       eventsource-parser: 0.0.5
-      gpt3-tokenizer: 1.1.5
       keyv: 4.5.2
       p-timeout: 6.1.0
       quick-lru: 6.1.1
@@ -893,13 +893,6 @@ packages:
     dependencies:
       get-intrinsic: 1.1.3
     dev: true
-
-  /gpt3-tokenizer/1.1.5:
-    resolution: {integrity: sha512-O9iCL8MqGR0Oe9wTh0YftzIbysypNQmS5a5JG3cB3M4LMYjlAVvNnf8LUzVY9MrI7tj+YLY356uHtO2lLX2HpA==}
-    engines: {node: '>=12'}
-    dependencies:
-      array-keyed-map: 2.1.3
-    dev: false
 
   /grapheme-splitter/1.0.4:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
