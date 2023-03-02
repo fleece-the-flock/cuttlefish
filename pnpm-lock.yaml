@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@tsconfig/node18': ^1.0.1
-  chatgpt: ^4.8.3
+  chatgpt: ^5.0.1
   docx-templates: ^4.9.2
   dotenv-safe: ^8.2.0
   eslint: ^7.32.0 || ^8.2.0
@@ -11,7 +11,7 @@ specifiers:
   ora: ^6.1.2
 
 dependencies:
-  chatgpt: 4.8.3
+  chatgpt: 5.0.1
   docx-templates: 4.9.2
   dotenv-safe: 8.2.0
   ora: 6.1.2
@@ -300,8 +300,8 @@ packages:
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
     dev: false
 
-  /chatgpt/4.8.3:
-    resolution: {integrity: sha512-3kJ41a+E6aAnw4NZQgjoS8s3veu8mdaK1e0l6nX5Zr+QJre8KXygNUJJ8yPOCKBi26I3YZ1MdU+d1+QLuWrmAw==}
+  /chatgpt/5.0.1:
+    resolution: {integrity: sha512-Wy+/2XL0FobiJFaQ6N5WnhRCnOwrUJCpoVCn67qqhiWrM1QW6lgmpvtDDKKDyvj7D1MLMjc2xB/kK8aT27mL/w==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
@@ -310,7 +310,7 @@ packages:
       conf: 11.0.1
       eventsource-parser: 0.0.5
       keyv: 4.5.2
-      p-timeout: 6.1.0
+      p-timeout: 6.1.1
       quick-lru: 6.1.1
       read-pkg-up: 9.1.0
       uuid: 9.0.0
@@ -1387,8 +1387,8 @@ packages:
       p-limit: 4.0.0
     dev: false
 
-  /p-timeout/6.1.0:
-    resolution: {integrity: sha512-s0y6Le9QYGELLzNpFIt6h8B2DHTVUDLStvxtvRMSKNKeuNVVWby2dZ+pIJpW4/pWr5a3s8W85wBNtc0ZA+lzCg==}
+  /p-timeout/6.1.1:
+    resolution: {integrity: sha512-yqz2Wi4fiFRpMmK0L2pGAU49naSUaP23fFIQL2Y6YT+qDGPoFwpvgQM/wzc6F8JoenUkIlAFa4Ql7NguXBxI7w==}
     engines: {node: '>=14.16'}
     dev: false
 
