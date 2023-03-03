@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@tsconfig/node18': ^1.0.1
-  chatgpt: ^5.0.1
+  chatgpt: ^5.0.5
   docx-templates: ^4.9.2
   dotenv-safe: ^8.2.0
   eslint: ^7.32.0 || ^8.2.0
@@ -11,7 +11,7 @@ specifiers:
   ora: ^6.1.2
 
 dependencies:
-  chatgpt: 5.0.1
+  chatgpt: 5.0.5
   docx-templates: 4.9.2
   dotenv-safe: 8.2.0
   ora: 6.1.2
@@ -300,8 +300,8 @@ packages:
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
     dev: false
 
-  /chatgpt/5.0.1:
-    resolution: {integrity: sha512-Wy+/2XL0FobiJFaQ6N5WnhRCnOwrUJCpoVCn67qqhiWrM1QW6lgmpvtDDKKDyvj7D1MLMjc2xB/kK8aT27mL/w==}
+  /chatgpt/5.0.5:
+    resolution: {integrity: sha512-86IlhtgHKDOvV+Hl4DLUOKZ354OH784ciI8xxbM4pmfzewQCP5VnjI0yb/nCVKAjyerFdIFHpcWdw2TVdhlcVw==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
