@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@tsconfig/node18': ^1.0.1
   chatgpt: ^5.0.5
-  docx-templates: ^4.9.2
+  docx-templates: ^4.11.0
   dotenv-safe: ^8.2.0
   eslint: ^7.32.0 || ^8.2.0
   eslint-config-airbnb-base: ^15.0.0
@@ -12,7 +12,7 @@ specifiers:
 
 dependencies:
   chatgpt: 5.0.5
-  docx-templates: 4.9.2
+  docx-templates: 4.11.0
   dotenv-safe: 8.2.0
   ora: 6.1.2
 
@@ -451,8 +451,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /docx-templates/4.9.2:
-    resolution: {integrity: sha512-NWuT7UBHRTBYpgFRpnFtdukY8H6BMqEgR0u3C2OOlCDM+lP28yGTgH/mMh7w8JSlrWzEWkCvcbLOR8XB2/mgow==}
+  /docx-templates/4.11.0:
+    resolution: {integrity: sha512-kxpLJ1rxfM3uDi/9ZtRSd9ev6KHVRXFffZaHnGGkiGs+IquyylC+LC4eP3xlyrtGlqIZEYtEJBPBI1gthlYKLA==}
     engines: {node: '>=6'}
     dependencies:
       jszip: 3.10.1
