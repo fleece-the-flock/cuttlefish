@@ -15,6 +15,11 @@ type Question = {
 }
 
 /** 答案类型 */
-type Answer = string
+type Answer = {
+  /** 问题 */
+  key: string
+  /** 答案片段 */
+  value: string[]
+}
 
 type CreateFileHandler = (prompt: string, answer: string[]) => void

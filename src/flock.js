@@ -55,7 +55,7 @@ const handleCreateFileWrapper =
 
     handleCreateFile(
       `${outputDir}/${name}${OUTPUT_FILE_EXTENSION}`,
-      value.json('')
+      value.join('')
     )
   }
 
@@ -77,7 +77,7 @@ export default async function flock(outputDir) {
     }
 
     // 执行自身
-    flock(outputDir)
+    await flock(outputDir)
     return
   }
 
