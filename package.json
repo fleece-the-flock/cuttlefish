@@ -24,7 +24,7 @@
     "chatgpt": "^5.1.2",
     "docx-templates": "^4.11.0",
     "dotenv-safe": "^8.2.0",
-    "ora": "^6.2.0"
+    "ora": "^6.3.0"
   },
   "devDependencies": {
     "@tsconfig/node18": "^1.0.1",
