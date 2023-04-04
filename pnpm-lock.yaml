@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   chatgpt:
-    specifier: ^5.1.3
-    version: 5.1.3
+    specifier: ^5.2.2
+    version: 5.2.2
   docx-templates:
     specifier: ^4.11.0
     version: 4.11.0
@@ -308,15 +308,15 @@ packages:
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
     dev: false
 
-  /chatgpt@5.1.3:
-    resolution: {integrity: sha512-RUroxNJdV4RSD3JKUINn/Dq3FQ+k4P3EwvAN+7wgnumlBcJx5DScRvI4wI3jUobQvk6Zb3n8IMgLQypsk0LmCQ==}
+  /chatgpt@5.2.2:
+    resolution: {integrity: sha512-6HVueHj7ghJtcsBHi8CfXCC5fbCXJMc29NSGluTcg/2yLo0Jla3Wm/dlcz3cIb+7KVBKD5b6Qz5bVu8XFEF7Sg==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
       '@dqbd/tiktoken': 1.0.2
       cac: 6.7.14
       conf: 11.0.1
-      eventsource-parser: 0.0.5
+      eventsource-parser: 1.0.0
       keyv: 4.5.2
       p-timeout: 6.1.1
       quick-lru: 6.1.1
@@ -764,9 +764,9 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /eventsource-parser@0.0.5:
-    resolution: {integrity: sha512-BAq82bC3ZW9fPYYZlofXBOAfbpmDzXIOsj+GOehQwgTUYsQZ6HtHs6zuRtge7Ph8OhS6lNH1kJF8q9dj17RcmA==}
-    engines: {node: '>=12'}
+  /eventsource-parser@1.0.0:
+    resolution: {integrity: sha512-9jgfSCa3dmEme2ES3mPByGXfgZ87VbP97tng1G2nWwWx6bV2nYxm2AWCrbQjXToSe+yYlqaZNtxffR9IeQr95g==}
+    engines: {node: '>=14.18'}
     dev: false
 
   /fast-deep-equal@3.1.3:
