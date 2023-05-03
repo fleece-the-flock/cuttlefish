@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   chatgpt:
-    specifier: ^5.2.2
-    version: 5.2.2
+    specifier: ^5.2.4
+    version: 5.2.4
   docx-templates:
     specifier: ^4.11.1
     version: 4.11.1
@@ -51,8 +51,8 @@ packages:
       js-tokens: 4.0.0
     dev: false
 
-  /@dqbd/tiktoken@1.0.2:
-    resolution: {integrity: sha512-AjGTBRWsMoVmVeN55NLyupyM8TNamOUBl6tj5t/leLDVup3CFGO9tVagNL1jf3GyZLkWZSTmYVbPQ/M2LEcNzw==}
+  /@dqbd/tiktoken@1.0.7:
+    resolution: {integrity: sha512-bhR5k5W+8GLzysjk8zTMVygQZsgvf7W1F0IlL4ZQ5ugjo5rCyiwGM5d8DYriXspytfu98tv59niang3/T+FoDw==}
     dev: false
 
   /@eslint/eslintrc@1.4.1:
@@ -308,12 +308,12 @@ packages:
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
     dev: false
 
-  /chatgpt@5.2.2:
-    resolution: {integrity: sha512-6HVueHj7ghJtcsBHi8CfXCC5fbCXJMc29NSGluTcg/2yLo0Jla3Wm/dlcz3cIb+7KVBKD5b6Qz5bVu8XFEF7Sg==}
+  /chatgpt@5.2.4:
+    resolution: {integrity: sha512-U53cUJ/1sEUD1+lcdW52QqbVQZOIMy3hxzYdEIhmmgZJQW/zI8C5O9ohCxXbFsbk6OtXHEBxY/0xw4Qa6twG2Q==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
-      '@dqbd/tiktoken': 1.0.2
+      '@dqbd/tiktoken': 1.0.7
       cac: 6.7.14
       conf: 11.0.1
       eventsource-parser: 1.0.0
