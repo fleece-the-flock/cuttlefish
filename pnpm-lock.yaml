@@ -16,8 +16,8 @@ dependencies:
 
 devDependencies:
   '@tsconfig/node18':
-    specifier: ^2.0.0
-    version: 2.0.0
+    specifier: ^2.0.1
+    version: 2.0.1
   eslint:
     specifier: ^7.32.0 || ^8.2.0
     version: 8.32.0
@@ -113,8 +113,8 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@tsconfig/node18@2.0.0:
-    resolution: {integrity: sha512-uI/B0ShkiEwTk036pncXucVlj4y11EW6mycQvCEzC1PkR2TBvdQZ5Wf96dp+XXWAc70FEDfvwTqanoaDpP6rPw==}
+  /@tsconfig/node18@2.0.1:
+    resolution: {integrity: sha512-UqdfvuJK0SArA2CxhKWwwAWfnVSXiYe63bVpMutc27vpngCntGUZQETO24pEJ46zU6XM+7SpqYoMgcO3bM11Ew==}
     dev: true
 
   /@types/json5@0.0.29:
