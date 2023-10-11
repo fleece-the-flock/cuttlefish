@@ -9,8 +9,8 @@ dependencies:
     specifier: ^5.2.5
     version: 5.2.5
   docx-templates:
-    specifier: ^4.11.2
-    version: 4.11.2
+    specifier: ^4.11.3
+    version: 4.11.3
   dotenv-safe:
     specifier: ^8.2.0
     version: 8.2.0
@@ -478,13 +478,12 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /docx-templates@4.11.2:
-    resolution: {integrity: sha512-PuTfRWu76kdeGRgLoWqE7UV8OPOw9uDkWDGz3bDXIxZBfB/2iEWzdXNKLkqcfkTH1M6mdTjqePpExFEgSo0NDg==}
+  /docx-templates@4.11.3:
+    resolution: {integrity: sha512-MphQX0jrqWsXQYUpTZxWaQbcTj7MksywZ6fg7g5ejyZpBbx5GxRJ/G+wv18gWn9bCa5OEKyIyxeejZrG/YGTvQ==}
     engines: {node: '>=6'}
     dependencies:
       jszip: 3.10.1
       sax: 1.2.4
-      timm: 1.7.1
     dev: false
 
   /dot-prop@7.2.0:
@@ -1838,10 +1837,6 @@ packages:
   /text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
-
-  /timm@1.7.1:
-    resolution: {integrity: sha512-IjZc9KIotudix8bMaBW6QvMuq64BrJWFs1+4V0lXwWGQZwH+LnX87doAYhem4caOEusRP9/g6jVDQmZ8XOk1nw==}
-    dev: false
 
   /tsconfig-paths@3.14.2:
     resolution: {integrity: sha512-o/9iXgCYc5L/JxCHPe3Hvh8Q/2xm5Z+p18PESBU6Ff33695QnCHBEjcytY2q19ua7Mbl/DavtBOLq+oG0RCL+g==}
