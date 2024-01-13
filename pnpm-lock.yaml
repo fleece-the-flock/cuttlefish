@@ -9,8 +9,8 @@ dependencies:
     specifier: ^5.2.5
     version: 5.2.5
   docx-templates:
-    specifier: ^4.11.3
-    version: 4.11.3
+    specifier: ^4.11.4
+    version: 4.11.4
   dotenv-safe:
     specifier: ^8.2.0
     version: 8.2.0
@@ -463,8 +463,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /docx-templates@4.11.3:
-    resolution: {integrity: sha512-MphQX0jrqWsXQYUpTZxWaQbcTj7MksywZ6fg7g5ejyZpBbx5GxRJ/G+wv18gWn9bCa5OEKyIyxeejZrG/YGTvQ==}
+  /docx-templates@4.11.4:
+    resolution: {integrity: sha512-VjsYlNrhk0UlUA4ddzNJCBw+ctw2KgjXrzs7qfQ1gf+caT3VtyUkPIpNKwOACm9k6xqre5WAQ4YMdIVAht98mQ==}
     engines: {node: '>=6'}
     dependencies:
       jszip: 3.10.1
