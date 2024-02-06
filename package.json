@@ -23,7 +23,7 @@
   "dependencies": {
     "chatgpt": "^5.2.5",
     "docx-templates": "^4.11.4",
-    "dotenv-safe": "^8.2.0",
+    "dotenv-safe": "^9.0.0",
     "ora": "^8.0.1"
   },
   "devDependencies": {
