@@ -12,8 +12,8 @@ dependencies:
     specifier: ^4.11.4
     version: 4.11.4
   dotenv-safe:
-    specifier: ^8.2.0
-    version: 8.2.0
+    specifier: ^9.0.0
+    version: 9.0.0(dotenv@8.6.0)
   ora:
     specifier: ^8.0.1
     version: 8.0.1
@@ -478,8 +478,10 @@ packages:
       type-fest: 2.19.0
     dev: false
 
-  /dotenv-safe@8.2.0:
-    resolution: {integrity: sha512-uWwWWdUQkSs5a3mySDB22UtNwyEYi0JtEQu+vDzIqr9OjbDdC2Ip13PnSpi/fctqlYmzkxCeabiyCAOROuAIaA==}
+  /dotenv-safe@9.0.0(dotenv@8.6.0):
+    resolution: {integrity: sha512-/M8292ReX1jMGLVf/jsAVQzQ0a453C3CJVVyqfoelV+78u9DeluqJU5HbwyQsUCzA4AV5sm52xClVgZWetX+fQ==}
+    peerDependencies:
+      dotenv: '>= 8.2.0'
     dependencies:
       dotenv: 8.6.0
     dev: false
