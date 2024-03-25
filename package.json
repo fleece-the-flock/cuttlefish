@@ -27,7 +27,7 @@
     "ora": "^8.0.1"
   },
   "devDependencies": {
-    "@tsconfig/node18": "^18.2.2",
+    "@tsconfig/node18": "^18.2.3",
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1"
