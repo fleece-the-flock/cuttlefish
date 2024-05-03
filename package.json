@@ -22,7 +22,7 @@
   "homepage": "https://github.com/fleece-the-flock/cuttlefish#readme",
   "dependencies": {
     "chatgpt": "^5.2.5",
-    "docx-templates": "^4.11.4",
+    "docx-templates": "^4.13.0",
     "dotenv-safe": "^9.1.0",
     "ora": "^8.0.1"
   },
